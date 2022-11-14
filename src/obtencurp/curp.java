@@ -180,4 +180,8 @@ public class curp {
     JOptionPane.showMessageDialog(null,curpF);
         
     }
+    public void resta(double n1, double n2){
+      
+        resultado = n1 - n2;
+        }
 }

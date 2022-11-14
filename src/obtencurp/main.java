@@ -1,5 +1,4 @@
 package obtencurp;
-
 /**
  *
  * @author Virgilio LM <virgili0@yahoo.com>

@@ -8,6 +8,7 @@ public class ventanaUno extends javax.swing.JFrame {
     curp c = new curp();
     String s ="", a=""; 
   curp restar = new curp();
+  curp suma = new curp();
     public ventanaUno() {
         initComponents();
     }
@@ -55,6 +56,7 @@ public class ventanaUno extends javax.swing.JFrame {
         Uno = new javax.swing.JTextField();
         Igual = new javax.swing.JLabel();
         Dos = new javax.swing.JTextField();
+        Suma = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -234,6 +236,13 @@ public class ventanaUno extends javax.swing.JFrame {
 
         Igual.setText("=");
 
+        Suma.setText("Suma");
+        Suma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SumaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -258,17 +267,17 @@ public class ventanaUno extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(109, 109, 109)
-                        .addComponent(Resta)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Resta)
+                            .addComponent(Suma))
                         .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Uno, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Dos, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Igual)
                                 .addGap(46, 46, 46)
                                 .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,10 +295,11 @@ public class ventanaUno extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Uno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Resta))
-                        .addGap(13, 13, 13)
+                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Igual)
-                            .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Suma))
                         .addGap(1, 1, 1)
                         .addComponent(Dos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -355,6 +365,15 @@ public class ventanaUno extends javax.swing.JFrame {
        Total.setText(String.valueOf(restar.resultado));
        
     }//GEN-LAST:event_RestaActionPerformed
+
+    private void SumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SumaActionPerformed
+       double numero1 = Double.parseDouble(Uno.getText());
+       double numero2 = Double.parseDouble(Dos.getText());
+       
+       suma.suma(numero1, numero2);
+       
+       Total.setText(String.valueOf(suma.resultado));
+    }//GEN-LAST:event_SumaActionPerformed
         public String obtenGenero(){
             
             if (hombre.isSelected()){
@@ -370,6 +389,7 @@ public class ventanaUno extends javax.swing.JFrame {
     private javax.swing.JTextField Dos;
     private javax.swing.JLabel Igual;
     private javax.swing.JRadioButton Resta;
+    private javax.swing.JRadioButton Suma;
     private javax.swing.JTextField Total;
     private javax.swing.JTextField Uno;
     private javax.swing.JSpinner anio;
